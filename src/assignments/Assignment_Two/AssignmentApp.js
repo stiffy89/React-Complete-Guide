@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import Validation from './Validation.js';
-import CharComponent from './CharComponent.js';
+import Validation from './Validation.js.js';
+import CharComponent from './CharComponent.js.js';
 
 class AssignmentAppTwo extends Component {
 

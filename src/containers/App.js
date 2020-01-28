@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Person from '../Persons/Person/Person.js';
+import Persons from'../components/Persons/Persons.js';
+import Cockpit from '../components/cockpit/cockpit.js'
 import styled from 'styled-components';
 
 import './App.css';
@@ -27,6 +28,7 @@ class App extends Component {
   }
 
   togglePersonsHandler = () => {
+    console.log("toggle clicked");
       const doesShow = this.state.showPersons;
       this.setState({showPersons: !doesShow});
   }
@@ -57,33 +59,25 @@ class App extends Component {
     if (this.state.showPersons) {
         persons = (
           <div>
-            {this.state.persons.map((person, index) =>{
-              return <Person 
-              name={person.name}
-              age={person.age}
-              click = {() => this.deletePersonHandler(index)}
-              key = {person.name + person.age}
-              />
-            })}
+            <Persons
+              persons = {this.state.persons}
+              clicked = {this.deletePersonHandler}
+            />
           </div>
         );
     }
 
     return (
       <div className="App">
-        <h1>Hi, I'm a React App</h1>
-        <p className={classes.join(' ')}>This is really working!</p>
+        <Cockpit
+          togglePersonsHandler = {this.togglePersonsHandler}
+        >
 
-        <button className="button" onClick = {this.togglePersonsHandler}>
-          Click Me!
-        </button>
+        </Cockpit>
 
         {persons}
-
       </div>
     );
-
-   
   }
 }
 

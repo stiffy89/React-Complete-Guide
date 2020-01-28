@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import UserInputComponent from './UserInput.js';
-import UserOutputComponent from './UserOut.js';
-import ButtonComponent from './Button.js';
+import UserInputComponent from './UserInput.js.js';
+import UserOutputComponent from './UserOut.js.js';
+import ButtonComponent from './Button.js.js';
 
 class AssignmentApp extends Component {
 
