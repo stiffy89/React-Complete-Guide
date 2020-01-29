@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Persons from'../components/Persons/Persons.js';
 import Cockpit from '../components/cockpit/cockpit.js'
 import styled from 'styled-components';
+import AuthContext from '../context/auth-context.js';
 
 import './App.css';
 
@@ -9,21 +10,30 @@ class App extends Component {
 
   state = {
     persons : [
-      {name: 'max', age: 28},
+      {name: 'max', age: 21},
       {name: 'james', age: 29},
       {name: 'matthew', age: 31},
       {name: 'christian', age: 40}
     ],
 
-    showPersons: false
+    showPersons: false,
+
+    //demonstration for setState
+    changeCounter: 0
   }
 
   nameChangeHandler = (event) => {
-    this.setState({
-        persons : [
-          {name: 'max', age: 28},
-          {name: event.target.value, age:29}
-        ]
+
+    //this syntax will guarentee us that we will use the old state
+    this.setState((prevState, props) => {
+        return {
+          persons : [
+            {name: 'max', age: 28},
+            {name: event.target.value, age:29}
+          ],
+  
+          changeCounter: prevState.changeCounter + 1
+        }
      })
   }
 
@@ -68,12 +78,21 @@ class App extends Component {
     }
 
     return (
+      
       <div className="App">
-        <Cockpit
-          togglePersonsHandler = {this.togglePersonsHandler}
-        >
+          <button>
+          Remove Cockpit
+          </button>
+        <AuthContext.Provider value = {{
+          authenticated: this.state.authenticated, 
+          login: this.loginHandler
+          }}>
+          <Cockpit
+            togglePersonsHandler = {this.togglePersonsHandler}
+          >
 
-        </Cockpit>
+          </Cockpit>
+        </AuthContext.Provider>
 
         {persons}
       </div>

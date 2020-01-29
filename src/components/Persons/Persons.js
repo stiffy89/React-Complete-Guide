@@ -4,7 +4,7 @@ import Person from './Person/Person.js';
 //pure component is a normal component which IMPLEMENTS (shouldComponentUpdate())
 //and checks all the components for property changes without the need for it to be specified
 
-class Persons extends Component {
+class Persons extends PureComponent {
 
   render () {
 
