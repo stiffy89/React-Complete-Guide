@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import classes from './Person.css';
-import styled from 'styled-components';
+
 import Auxiliary from '../../../hoc/Auxiliary.js';
 import WithProps from "../../../hoc/WithProps.js";
 

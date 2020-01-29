@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Persons from'../components/Persons/Persons.js';
 import Cockpit from '../components/cockpit/cockpit.js'
-import styled from 'styled-components';
+
 import AuthContext from '../context/auth-context.js';
 
 import './App.css';
